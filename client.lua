@@ -11,7 +11,7 @@ RegisterCommand('destilador', function(source, args, rawCommand)
     end
     local playerPed = PlayerPedId()
     TaskStartScenarioInPlace(playerPed, GetHashKey('WORLD_HUMAN_CROUCH_INSPECT'), 30000, true, false, false, false)
-    exports['progressBars']:startUI(30000, "Preparando caldero")
+    exports['progressBars']:startUI(30000, "Preparando destilador")
     Citizen.Wait(30000)
     ClearPedTasksImmediately(PlayerPedId())
     local x,y,z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 2.0, -1.55))
@@ -23,7 +23,7 @@ end, false)
 
 RegisterCommand('-destilador', function(source, args, rawCommand)
     if tent == 0 then
-        print("No hay ninguna hoguera cerca.")
+        print("No hay ningun destilador cerca.")
     else
         SetEntityAsMissionEntity(tent)
         DeleteObject(tent)
